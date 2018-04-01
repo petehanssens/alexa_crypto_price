@@ -1,0 +1,1 @@
+PricingIntent tell me the price of {crypto}

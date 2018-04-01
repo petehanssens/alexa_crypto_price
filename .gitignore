@@ -1,0 +1,5 @@
+#node modules
+/lambda/node_modules/
+
+#Serverless files
+.serverless
