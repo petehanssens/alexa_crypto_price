@@ -6,10 +6,10 @@ let url ='https://api.btcmarkets.net/market/ETH/AUD/tick';
 
 const APP_ID = undefined;
 
-const SKILL_NAME = 'crypto price';
-const HELP_MESSAGE = 'Crypto price gives you the value in AUD of a selected group of cryptocurrencies being traded on BTC Markets... what can I help you with?';
+const SKILL_NAME = 'crypto tracker';
+const HELP_MESSAGE = 'Crypto tracker gives you the value in AUD of a selected group of cryptocurrencies being traded on BTC Markets... what can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
-const STOP_MESSAGE = 'Thanks for using crypto price, Goodbye!';
+const STOP_MESSAGE = 'Thanks for using crypto tracker, Goodbye!';
 const SALES_REPROMPT = `Would you like to ask another question?`;
 
 exports.handler = function(event, context, callback) {
@@ -22,7 +22,7 @@ exports.handler = function(event, context, callback) {
 const handlers = {
     'NewSession': function () {
         console.log('New Session Request');
-        this.emit(':ask', 'Welcome to Crypto Price! You can ask me what the latest Bitcoin price is.', 'Would you like to get the price of a cryptocurrency?');
+        this.emit(':ask', 'Welcome to Crypto Tracker! You can ask me what the latest Bitcoin price is.', 'Would you like to get the price of a cryptocurrency?');
     },
 
     'LaunchRequest': function () {
@@ -51,7 +51,7 @@ const handlers = {
         fetch(url)
         .then(res => res.json())
         .then(json => {console.log(json),
-            this.emit(':ask', `The crypto value is ${json.lastPrice}`, 'you hear me?')
+            this.emit(':ask', `The crypto value is ${json.lastPrice}`, 'would you like to hear another cryptocurrency price?')
         }
         )
         .catch(error => {
